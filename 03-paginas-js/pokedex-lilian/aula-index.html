@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <!-- Para estilizarmos a página criada, fazemos a tag 'style' e definimos os parâmetros. Isso é feito através do que se denomina CCS -->
+    <style>
+    h1 { 
+         color: teal;
+         font-family: 'Segoe UI';
+         font-style: oblique;
+         text-align: center;
+        }
+
+    p {
+        font-family: 'Segoe UI';
+    }
+        
+    </style>
+</head>
+<body>
+    <h1>Minha Pokedex</h1> 
+    <!--Nota: é muito importante conhecer as tags do html, pois facilita a indexicação, busca e acessibilidade
+    O html é uma linguagem de marcação de texto, o CCS de estilo e o javascript é de COMPORTAMENTO-->
+    <p>Aprendendo html para criar uma pokedex \o/</p>
+
+    <button id="btnTeste" type="button">
+        Teste :)
+    </button>
+    <!-- Objetos úteis para manipular o site:
+        'window' = objeto que representa o browser;
+        'document' = é o documento corrente.
+        Exemplo: 
+    -->
+    <script>
+        const btnTeste = document.getElementById("btnTeste")
+        btnTeste.addEventListener("click",function(){
+            prompt('Ei, você clicou aqui');
+        })
+
+    </script>
+</body>
+</html>
