@@ -13,4 +13,5 @@ pokeApi.getPokemons = (offset=0, limit=10) => { /*essa função abstrai o consum
     .catch((error) => console.error(error))
     .then((pokemonOl) => pokemonOl.map(pokeApi.getPokemonDetail))
     .then((detailRequests) => Promise.all(detailRequests)) /* recebe um array de promise */
+    .then((pokemonDetails) => pokemonDetails)
 }
