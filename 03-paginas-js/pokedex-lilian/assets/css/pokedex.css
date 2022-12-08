@@ -19,7 +19,7 @@
 .water {
     background-color: #678fee;
 }
-.eletric {
+.electric {
     background-color: #f7cf2e;
 }
 .ice  {
@@ -74,13 +74,14 @@
 .pokemon .number{
     font-size: .625rem;
     margin: 0;
-    color:#61e1ca;
+    color: gainsboro;
     text-align:right;
 }
 
 .pokemon .name{
     margin: 0.25rem .25rem;
     font-size: 1.5rem;
+    text-transform: capitalize;
 }
 
 .pokemon .types{
@@ -93,7 +94,8 @@
     padding: .25rem .5rem;
     margin: .125rem;
     border-radius: 1rem;
-    filter: brightness(1.2)
+    filter: brightness(1.2);
+    text-align: center;
 }
 
 .pokemon .detail {
@@ -106,6 +108,25 @@
     max-width: 100%;
     height: 70px;
     align-self: flex-end;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+}
+
+.pagination button {
+    font-size: 2rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5rem;
+    text-align: center;
+    padding: .25rem 1rem .25rem 1rem;
 }
 
 /* Media Query */
