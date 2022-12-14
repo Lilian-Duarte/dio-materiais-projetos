@@ -78,10 +78,14 @@
     text-align:right;
 }
 
-.pokemon .name{
+.pokemon .name {
     margin: 0.25rem .25rem;
     font-size: 1.5rem;
     text-transform: capitalize;
+    background-color: transparent;
+    border: none;
+    color: white;
+    text-align: left;
 }
 
 .pokemon .types{

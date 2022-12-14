@@ -3,11 +3,11 @@ const buttonPagination = document.getElementById('loadMoreButton')
 const limit = 10;
 let offset = 0;
 
-function convertPokemonTypesToList(pokemonTypes){
+function convertPokemonTypesToList(pokemonTypes) {
     return pokemonTypes.map((typeSlot) => `<li class="type ${typeSlot.type.name}">${typeSlot.type.name}</li>`)
 }
 
-function convertPokemonTypesToNames(pokemonTypes){
+function convertPokemonTypesToNames(pokemonTypes) {
     return pokemonTypes.map((typeSlot) => typeSlot.type.name)
 }
 
@@ -20,12 +20,13 @@ for (let i = 0; i < pokemonList.length; i++) {
 
 /* os símbolos => são chamados de arrow functions e deixam o código mais limpo */
 
-function convertPokemonToList(pokemon){
+function convertPokemonToList(pokemon) {
     const pokemonType = convertPokemonTypesToNames(pokemon.types);
     return `
     <li class="pokemon ${pokemonType[0]}">
                 <span class="number">#${pokemon.id}</span>
-                <span class="name">${pokemon.name}</span>
+                <button id="pokemonDetail" type="button" class="name" name=${pokemon.name}> <span>${pokemon.name}</span>
+                </button>
                 <div class="detail">
                     <ol class="types">
                         ${convertPokemonTypesToList(pokemon.types).join('')}
@@ -35,19 +36,21 @@ function convertPokemonToList(pokemon){
             </li>
     `
 }
-function loadMorePokemons (offset, limit){
-    pokeApi.getPokemons(offset, limit).then((pokemonsList=[])=>{
+function loadMorePokemons(offset, limit) {
+    pokeApi.getPokemons(offset, limit).then((pokemonsList = []) => {
         const newHtml = pokemonsList.map(convertPokemonToList).join('')
         pokemonOl.innerHTML += newHtml
 
     })
 }
 
-loadMorePokemons(offset,limit)
-buttonPagination.addEventListener('click',()=>{
+loadMorePokemons(offset, limit)
+buttonPagination.addEventListener('click', () => {
     offset += limit
     loadMorePokemons(offset, limit)
 })
+
+
 
 
 
