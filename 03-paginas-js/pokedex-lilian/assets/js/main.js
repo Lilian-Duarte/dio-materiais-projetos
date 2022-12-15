@@ -25,7 +25,7 @@ function convertPokemonToList(pokemon) {
     return `
     <li class="pokemon ${pokemonType[0]}">
                 <span class="number">#${pokemon.id}</span>
-                <button id="pokemonDetail" type="button" class="name" name=${pokemon.name}> <span>${pokemon.name}</span>
+                <button id="btnpokemonDetail" type="button" class="name" onclick="openPokemonDetails('${pokemonType[0]}','${pokemon.id}','${pokemon.name}', '${pokemon.weight}')" name=${pokemon.name}> <span>${pokemon.name}</span>
                 </button>
                 <div class="detail">
                     <ol class="types">
@@ -45,10 +45,33 @@ function loadMorePokemons(offset, limit) {
 }
 
 loadMorePokemons(offset, limit)
+
 buttonPagination.addEventListener('click', () => {
     offset += limit
     loadMorePokemons(offset, limit)
 })
+
+function openPokemonDetails(type, id, name, weight){
+    const popup = document.getElementById('popup'); 
+    const containerPopup = document.getElementById('container-popup');
+    containerPopup.style.display = 'block'; 
+    popup.style.display = 'block';
+    const pokemonsDetails = document.getElementById('pokemonsDetails');
+    pokemonsDetails.innerHTML += `<li class="Dpokemon ${type}">
+                <span class="Dnumber">#${id}</span>
+                <span class="Dname">${name}</span>
+                <span class="Dweight">${weight}</span> 
+                <div class="Ddetail">
+                    <ol class="types">
+                    </ol>
+                    <img src= "https://img.pokemondb.net/sprites/black-white/anim/normal/${name}.gif" alt="${name}">
+                </div>
+            </li> `
+}
+
+
+
+
 
 
 
