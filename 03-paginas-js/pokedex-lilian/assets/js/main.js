@@ -58,14 +58,23 @@ function openPokemonDetails(type, id, name, weight){
     popup.style.display = 'block';
     const pokemonsDetails = document.getElementById('pokemonsDetails');
     pokemonsDetails.innerHTML += `<li class="Dpokemon ${type}">
-                <span class="Dnumber">#${id}</span>
-                <span class="Dname">${name}</span>
-                <span class="Dweight">${weight}</span> 
-                <div class="Ddetail">
-                    <ol class="types">
+    <div class="Dnumber"> <span class="Dnumber">#${id}</span> 
+        </div>
+<div class = "Dimg"> <img src= "https://img.pokemondb.net/sprites/black-white/anim/normal/${name}.gif" alt="${name}">
+</div>
+    
+    
+    <div class="Dname"> <span class="Dname">${name}</span> 
+        </div>
+        <div class="Dtypes">
+                    <ol class="Dtypes">
+                    tipo
                     </ol>
-                    <img src= "https://img.pokemondb.net/sprites/black-white/anim/normal/${name}.gif" alt="${name}">
+                    
                 </div>
+    <div class="Dweight"> <span class="Dweight">${weight}</span> 
+        </div>               
+                
             </li> `
 }
 
