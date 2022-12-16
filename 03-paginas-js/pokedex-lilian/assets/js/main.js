@@ -6,6 +6,9 @@ let offset = 0;
 function convertPokemonTypesToList(pokemonTypes) {
     return pokemonTypes.map((typeSlot) => `<li class="type ${typeSlot.type.name}">${typeSlot.type.name}</li>`)
 }
+function convertPokemonTypesToList2(types) {
+    return types.map((type) => `<li class="dtype ${type}">${type}</li>`)
+}
 
 function convertPokemonTypesToNames(pokemonTypes) {
     return pokemonTypes.map((typeSlot) => typeSlot.type.name)
@@ -25,7 +28,9 @@ function convertPokemonToList(pokemon) {
     return `
     <li class="pokemon ${pokemonType[0]}">
                 <span class="number">#${pokemon.id}</span>
-                <button id="btnpokemonDetail" type="button" class="name" onclick="openPokemonDetails('${pokemonType[0]}','${pokemon.id}','${pokemon.name}', '${pokemon.weight}')" name=${pokemon.name}> <span>${pokemon.name}</span>
+                <button id="btnpokemonDetail" type="button" class="name" onclick="openPokemonDetails('${pokemonType[0]}','${pokemon.id}',
+                '${pokemon.name}','${pokemonType}', '${pokemon.weight}','${pokemon.height}')" 
+                name=${pokemon.name}> <span>${pokemon.name}</span>
                 </button>
                 <div class="detail">
                     <ol class="types">
@@ -51,32 +56,33 @@ buttonPagination.addEventListener('click', () => {
     loadMorePokemons(offset, limit)
 })
 
-function openPokemonDetails(type, id, name, weight){
+function openPokemonDetails(type, id, name, poketypes, weight, height){
     const popup = document.getElementById('popup'); 
     const containerPopup = document.getElementById('container-popup');
     containerPopup.style.display = 'block'; 
     popup.style.display = 'block';
     const pokemonsDetails = document.getElementById('pokemonsDetails');
-    pokemonsDetails.innerHTML += `<li class="Dpokemon ${type}">
-    <div class="Dnumber"> <span class="Dnumber">#${id}</span> 
+    const types = poketypes.split(',');
+    pokemonsDetails.innerHTML += `<li class="dpokemon ${type}">
+        <div class="dnumber"> <span class="dnumber">#${id}</span>
         </div>
-<div class = "Dimg"> <img src= "https://img.pokemondb.net/sprites/black-white/anim/normal/${name}.gif" alt="${name}">
-</div>
-    
-    
-    <div class="Dname"> <span class="Dname">${name}</span> 
+        <div class="dimg"> <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/${name}.gif" alt="${name}">
         </div>
-        <div class="Dtypes">
-                    <ol class="Dtypes">
-                    tipo
-                    </ol>
-                    
-                </div>
-    <div class="Dweight"> <span class="Dweight">${weight}</span> 
-        </div>               
-                
-            </li> `
-}
+      
+        <div class="dname"> <span class="dname">${name}</span>
+        </div>
+        <div class="ddetail">
+            <ol class="dtypes">
+                ${convertPokemonTypesToList2(types).join('')}
+            </ol>
+        </div>
+        <div class="dcharacts"> <span class="dweight">WT: ${weight}</span>
+        <span class="dheight">HT: ${height}</span>
+
+        </div>
+    
+    </li> `
+    }
 
 
 
