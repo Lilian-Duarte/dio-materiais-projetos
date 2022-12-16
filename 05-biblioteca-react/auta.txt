@@ -1,0 +1,11 @@
+O que é o React?
+- React é uma biblioteca de js p/ facilitar a criação de interface e a interação do usuário.
+
+O que é uma biblioteca?
+- Um armazenamento de soluções, funções ou métodos para serem utilizados durante o desenvolvimento do código. Exemplos:
+moment.js, chart.js, voca, mo.js, react.
+
+O que é um framework?
+- são estruturas compostas por um conjunto de códigos genéricos que permite o desenvolvimento de sistemas e aplicações. 
+Funcionam como uma espécie de template;
+Exemplos: angular, vuex, ionic, Next, Express e LoopBack
