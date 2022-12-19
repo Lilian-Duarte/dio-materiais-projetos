@@ -1,18 +1,21 @@
-let lines = '\n4\n3\n2\n1'.split("\n"); 
+let liness = '\n4\n3\n2\n1'.split("\n"); 
+let lines = liness.map((x)=>+x);
+console.log(typeof lines);
 let n = parseInt(lines.shift()); 
 let operators = ['*','/','+','-'];
-const elements = ['2',*, '3',-, '1'];
-const resultado = elements.join('');
-console.log(resultado);
+let i = 0;
+console.log(i);
+while (i>=0){
 
+    var op = (lines[i])*(lines[i+1])/(lines[i+2])+(lines[i+3]);
+    if ((lines.length-1)%4===0){
+        var r = (lines.length-1)/4;
+        op = op - (lines[i])*(lines[i+1])/(lines[i+2])+(lines[i+3]);
+        i = i+3;
+    }
+}
+console.log(parseInt(op,10));
 
-
- console.log(n); 
-
-
-
-
-console.log(lines)
 
 // TODO: Calcule o valor do fatorial de "n", atribuindo o retorno a "r".
 /*Fazemos um fatorial desajeitado usando os inteiros em ordem decrescente, trocando 
