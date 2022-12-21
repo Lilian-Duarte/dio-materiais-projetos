@@ -9,7 +9,16 @@ for (let i=0;i<dp.length;i++){
        i--;
     }
 }
-dp.push(0); 
+dp.push(0);
+for (let i=1;i<dp.length;i++){
+    var r = dp[0]+dp[i];
+    var d = n/r;
+    if(n%r===0){
+
+    }
+}
+
+
 
 
 console.log(dp);
