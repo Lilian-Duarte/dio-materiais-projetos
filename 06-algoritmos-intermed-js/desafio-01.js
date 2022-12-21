@@ -1,20 +1,33 @@
-let liness = '\n4\n3\n2\n1'.split("\n"); 
-let lines = liness.map((x)=>+x);
-console.log(typeof lines);
-let n = parseInt(lines.shift()); 
-let operators = ['*','/','+','-'];
-let i = 0;
-console.log(i);
-while (i>=0){
 
-    var op = (lines[i])*(lines[i+1])/(lines[i+2])+(lines[i+3]);
-    if ((lines.length-1)%4===0){
-        var r = (lines.length-1)/4;
-        op = op - (lines[i])*(lines[i+1])/(lines[i+2])+(lines[i+3]);
-        i = i+3;
+let n = 11;
+console.log(n)
+
+function primeira(n){
+    if (n>0 & n <= 2) { 
+        return n;
+       } 
+    if (n === 1){
+        return 1;
     }
+    if(n<=0){
+        return 0;
+    }
+    return parseInt(n*(n-1)/(n-2)) + (n-3) + segunda(n-4);
 }
-console.log(parseInt(op,10));
+function segunda(n){
+    if (n>0 & n <= 2) { 
+        return -n;
+       } 
+    if (n === 1){
+        return 1;
+    }
+    if(n<=0){
+        return 0;
+    }
+    return parseInt(-n*(n-1)/(n-2)) + (n-3) + segunda(n-4);
+}
+
+console.log(primeira(n));
 
 
 // TODO: Calcule o valor do fatorial de "n", atribuindo o retorno a "r".

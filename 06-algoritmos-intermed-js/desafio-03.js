@@ -1,6 +1,15 @@
-let lines = '\n4\n3\n2\n1'.split("\n"); 
-let n = 4;
+// desafio dos quadrados perfeitos
+let lines = '10,9,8,7,6,5,4,3,2,1'.split(","); 
+let n = 10;
 
-const dp = new Array(n + 1).fill(n); 
-dp[0] = 0; 
+const dp = lines.map((x)=>+x);
+for (let i=0;i<dp.length;i++){
+    if(!Number.isInteger(Math.sqrt(dp[i]))){
+       dp.splice(i,1);
+       i--;
+    }
+}
+dp.push(0); 
+
+
 console.log(dp);
