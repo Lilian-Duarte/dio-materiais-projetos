@@ -10,8 +10,16 @@ function convertPokemonTypesToList2(types) {
     return types.map((type) => `<li class="dtype ${type}">${type}</li>`)
 }
 
+function convertPokemonAbilitiesToList(abilities){
+    return abilities.map((ability)=>`<li>${ability}</li>`)
+}
+
 function convertPokemonTypesToNames(pokemonTypes) {
     return pokemonTypes.map((typeSlot) => typeSlot.type.name)
+}
+
+function convertPokemonAbilitiesToNames(pokemonAbilities) {
+    return pokemonAbilities.map((abilitySlot) => abilitySlot.ability.name)
 }
 
 /* const listaHtml = [];    
@@ -25,11 +33,11 @@ for (let i = 0; i < pokemonList.length; i++) {
 
 function convertPokemonToList(pokemon) {
     const pokemonType = convertPokemonTypesToNames(pokemon.types);
-    return `
+        return `
     <li class="pokemon ${pokemonType[0]}">
                 <span class="number">#${pokemon.id}</span>
                 <button id="btnpokemonDetail" type="button" class="name" onclick="openPokemonDetails('${pokemonType[0]}','${pokemon.id}',
-                '${pokemon.name}','${pokemonType}', '${pokemon.weight}','${pokemon.height}')" 
+                '${pokemon.name}','${pokemonType}', '${pokemon.weight}','${pokemon.height}','${pokemon.abilities}')" 
                 name=${pokemon.name}> <span>${pokemon.name}</span>
                 </button>
                 <div class="detail">
@@ -56,7 +64,7 @@ buttonPagination.addEventListener('click', () => {
     loadMorePokemons(offset, limit)
 })
 
-function openPokemonDetails(type, id, name, poketypes, weight, height){
+function openPokemonDetails(type, id, name, poketypes, weight, height,abilities){
     const popup = document.getElementById('popup'); 
     const containerPopup = document.getElementById('container-popup');
     containerPopup.style.display = 'block'; 
@@ -76,12 +84,17 @@ function openPokemonDetails(type, id, name, poketypes, weight, height){
                 ${convertPokemonTypesToList2(types).join('')}
             </ol>
         </div>
-        <div class="dcharacts"> <span class="dweight">WT: ${weight}</span>
-        <span class="dheight">HT: ${height}</span>
-
+        <div class="dcharacts"> <span class="dweight">| WT: ${weight/10} Kg |</span>
+        <span class="dheight">HT: ${height/10} m |</span>
         </div>
-    
-    </li> `
+        </li> 
+    <section>
+       
+        <div class="dabilities">
+        <ol>
+        
+        </ol>
+        </section>`
     }
 
 
