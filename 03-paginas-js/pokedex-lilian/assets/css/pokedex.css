@@ -86,6 +86,11 @@
     border: none;
     color: white;
     text-align: left;
+    
+}
+.pokemon .name:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .pokemon .types{
@@ -131,6 +136,9 @@
     border-radius: 5rem;
     text-align: center;
     padding: .25rem 1rem .25rem 1rem;
+}
+.pagination button:hover{
+    cursor: pointer;
 }
 
 /* Media Query */

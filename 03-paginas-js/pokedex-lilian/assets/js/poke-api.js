@@ -5,7 +5,13 @@ pokeApi.getPokemonDetail = (pokemon)=>{
     .then((response) => response.json(''))
 }
 
-pokeApi.getPokemons = (offset=0, limit=10) => { /*essa função abstrai o consumo do http e dá o resultado. Para funcionar, precisa ser importado antes do main*/
+pokeApi.getSpeciesDetail = (species)=>{
+    return fetch(species.url)
+    .then((response) => response.json(''))
+}
+
+pokeApi.getPokemons = (offset=0, limit=10) => { /*essa função abstrai o consumo do http e dá o resultado. Para funcionar, 
+precisa ser importado antes do main*/
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
     return fetch(url)
     .then((response) => response.json()) /* o fetch nos retorna uma promise */
@@ -15,3 +21,15 @@ pokeApi.getPokemons = (offset=0, limit=10) => { /*essa função abstrai o consum
     .then((detailRequests) => Promise.all(detailRequests)) /* recebe um array de promise */
     .then((pokemonDetails) => pokemonDetails)
 }
+
+pokeApi.getPokemonSpecies = (offset=0, limit=10) => {
+    const url = `https://pokeapi.co/api/v2/pokemon-species?offset=${offset}&limit=${limit}`
+    return fetch(url)
+    .then((response) => response.json()) /* o fetch nos retorna uma promise */
+    .then((jsonBody) => jsonBody.results)
+    .catch((error) => console.error(error))
+    .then((pokemonsDetails) => pokemonsDetails.map(pokeApi.getSpeciesDetail))
+    .then((detailRequests) => Promise.all(detailRequests)) /* recebe um array de promise */
+    .then((speciesDetails) => speciesDetails)
+}
+
