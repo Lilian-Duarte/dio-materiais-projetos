@@ -39,8 +39,7 @@ for (let i = 0; i < pokemonList.length; i++) {
 
 /* os símbolos => são chamados de arrow functions e deixam o código mais limpo */
 
-function convertPokemonToList(pokemon,species) {
-    console.log(species.egg_groups)
+function convertPokemonToList(pokemon) {
     const pokemonType = convertPokemonTypesToNames(pokemon.types);
     const pokemonAbilities = convertPokemonAbilitiesToNames(pokemon.abilities);
     const pokemonStats = convertPokemonStatsToNames(pokemon.stats);
