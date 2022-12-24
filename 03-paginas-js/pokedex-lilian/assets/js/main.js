@@ -1,5 +1,4 @@
 const pokemonOl = document.getElementById('pokemonOl')
-const pokemonsDetails = document.getElementById('pokemonsDetails')
 const buttonPagination = document.getElementById('loadMoreButton')
 const limit = 10;
 let offset = 0;
